@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Battle Arena</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="assets/images/attacks/punch.gif"
+    />
+
+    <link rel="stylesheet" href="assets/css/NES.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/style-perso.css" />
+  </head>
+
+  <body class="body relative">
+    <!-- BOÎTE D'INITIALISATION DU JEU -->
+    <div class="init" id="init">
+      <div class="init__box">
+        <div class="init__box_side">
+          <h2 class="init__box_side_title">Player 1</h2>
+
+          <div class="init__box_side_field nes-field">
+            <label class="init__box_side_field_label" for="name_field"
+              >Player 1's name</label
+            >
+            <input
+              type="text"
+              name="p1_name"
+              placeholder="Name"
+              class="nes-input init__box_side_field_input"
+              value="Lucas"
+            />
+          </div>
+
+          <div class="init__box_side_field nes-field">
+            <label class="init__box_side_field_label" for="name_field"
+              >Player 1's PV</label
+            >
+            <input
+              name="p1_pv"
+              placeholder="PV"
+              type="number"
+              class="nes-input init__box_side_field_input"
+              value="100"
+            />
+          </div>
+        </div>
+
+        <hr class="init__box_separator" />
+
+        <div class="init__box_side">
+          <h2 class="init__box_side_title">Player 2</h2>
+
+          <div class="init__box_side_field nes-field">
+            <label class="init__box_side_field_label" for="name_field"
+              >Player 2's name</label
+            >
+            <input
+              type="text"
+              name="p1_name"
+              placeholder="Name"
+              class="nes-input init__box_side_field_input"
+              value="Emilia"
+            />
+          </div>
+
+          <div class="init__box_side_field nes-field">
+            <label class="init__box_side_field_label" for="name_field"
+              >Player 2's PV</label
+            >
+            <input
+              name="p2_pv"
+              placeholder="PV"
+              type="number"
+              class="nes-input init__box_side_field_input"
+              value="100"
+            />
+          </div>
+        </div>
+      </div>
+
+      <button class="init__button nes-btn is-success">Lancer le jeu</button>
+    </div>
+    <!-- FIN DE LA BOÎTE D'INITIALISATION DU JEU -->
+
+    <header class="header">
+      <h1 class="header__title">(Battle Arena)</h1>
+    </header>
+
+    <main class="main">
+      <!-- ########## PLAYER 1 ########## -->
+      <div class="player" id="p1">
+        <div class="player__image" id="image-p1">
+          <img
+            class="player__image_img"
+            src="assets/images/p1.gif"
+            alt="Player 1 image"
+          />
+        </div>
+
+        <p class="player__pv">
+          PV <span class="player__pv_value" id="pv-p1">0</span>
+        </p>
+
+        <!-- BARRE DE VIE -->
+        <progress
+          class="player__bar nes-progress is-primary is-pattern"
+          value="100"
+          max="100"
+        ></progress>
+        <!-- FIN DE LA BARRE DE VIE -->
+
+        <div class="player__informations">
+          <p class="player__informations_name">Player 1</p>
+          <!-- <p class="player__informations_rank">Level 2</p> -->
+        </div>
+
+        <div class="player__spells">
+          <button
+            type="button"
+            class="nes-btn player__spells_spell"
+            data-damage="10"
+          >
+            Sword - 10
+          </button>
+          <button
+            type="button"
+            class="nes-btn player__spells_spell"
+            data-damage="15"
+          >
+            Spear - 15
+          </button>
+          <button
+            type="button"
+            class="nes-btn player__spells_spell"
+            data-damage="5"
+          >
+            Punch - 5
+          </button>
+          <button id="regeneration-p1" class="nes-btn" data-heal="20">
+            Regénération
+          </button>
+        </div>
+      </div>
+
+      <img src="assets/images/vs.gif" style="height: 15rem" id="vs" />
+
+      <!-- ########## PLAYER 1 ########## -->
+      <div class="player" id="p2">
+        <div class="player__image" id="image-p2">
+          <img
+            class="player__image_img"
+            src="assets/images/p2.gif"
+            alt="Player 2 image"
+          />
+        </div>
+
+        <p class="player__pv">
+          PV <span class="player__pv_value" id="pv-p2">0</span>
+        </p>
+
+        <!-- BARRE DE VIE -->
+        <progress
+          class="player__bar nes-progress is-primary is-pattern"
+          value="100"
+          max="100"
+        ></progress>
+        <!-- FIN DE LA BARRE DE VIE -->
+
+        <div class="player__informations">
+          <p class="player__informations_name">Player 2</p>
+          <!-- <p class="player__informations_rank">Level 59</p> -->
+        </div>
+
+        <div class="player__spells">
+          <button
+            type="button"
+            class="nes-btn player__spells_spell"
+            data-damage="5"
+          >
+            Meoww - 5
+          </button>
+          <button
+            type="button"
+            class="nes-btn player__spells_spell"
+            data-damage="20"
+          >
+            Les griffes - 20
+          </button>
+          <button
+            type="button"
+            class="nes-btn player__spells_spell"
+            data-damage="30"
+          >
+            Croc Croc - 30
+          </button>
+          <button id="regeneration-p2" class="nes-btn" data-heal="20">
+            Regénération
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- ######### SONS DES ATTAQUES ######### -->
+
+    <!-- PLAYER 2 -->
+    <audio id="sound-claw" src="assets/audio/claw.mp3"></audio>
+    <audio id="sound-meoww" src="assets/audio/moeww.mp3"></audio>
+
+    <audio id="sound-croccroc">
+      <source src="assets/audio/croccroc.ogg" type="audio/ogg" />
+    </audio>
+
+    <!-- PLAYER 1 -->
+    <audio id="sound-sword" src="assets/audio/sword.mp3"></audio>
+    <audio id="sound-spear" src="assets/audio/spear.mp3"></audio>
+    <audio id="sound-punch" src="assets/audio/punch.mp3"></audio>
+
+    <!-- ######### FIN DES SONS DES ATTAQUES ######### -->
+
+    <audio id="sound-button" src="assets/audio/button-hover.wav"></audio>
+    <audio id="sound-theme" src="assets/audio/theme.mp3"></audio>
+
+    <script src="assets/js/jquery.min.js"></script>
+
+    <script src="js/general.js"></script>
+    <script src="js/game.js"></script>
+  </body>
+</html>

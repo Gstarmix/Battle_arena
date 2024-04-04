@@ -1,0 +1,100 @@
+@keyframes damage
+    from
+        bottom: 75%
+        opacity: 0
+    50%
+        opacity: 1
+    to
+        bottom: 150%
+        opacity: 0
+.player
+    // border: 1px solid red
+    padding: 1rem
+    width: 40rem
+
+    &__image
+        position: relative
+        display: flex
+        align-items: flex-end
+        justify-content: center
+        height: 100%
+        height: 20rem
+        // border: 1px solid blue
+
+        &_img
+            // border: 1px solid cyan
+            max-width: 20rem
+            max-height: 100%
+
+        &_attack
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+
+        .winner
+            position: absolute
+            bottom: 0
+            left: 50%
+            transform: translateX(-50%)
+
+    &__pv
+        margin-top: 2rem
+        color: #ff3860
+        font-weight: bold
+        font-size: 2rem
+
+        &_value
+            position: relative
+            color: white
+
+            &_damage
+                position: absolute
+                bottom: 100%
+                right: 0
+                animation-name: damage
+                animation-duration: 1s
+                animation-timing-function: ease-in-out
+                animation-fill-mode: forwards
+
+    &__bar
+        // margin-top: 1rem
+
+    &__separator
+        width: 100%
+        height: 2px
+
+    &__healthbar
+        height: 1rem
+        width: 100%
+        border: 1px solid white
+
+        &_value
+            height: 100%
+            width: 25%
+            background-color: #46B450
+
+    &__informations
+        // border: 1px solid green
+        color: white
+        margin: 1rem 0
+
+        &_name
+            font-weight: bold
+            font-size: 2rem
+
+        &_rank
+            font-style: italic
+            font-size: .75rem
+
+    &__spells
+        font-size: .75rem
+        // border: 1px solid pink
+
+        // &_spell
+
+            // &_amount
+
+        &.locked
+            pointer-events: none
+            opacity: .5
